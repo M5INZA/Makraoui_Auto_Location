@@ -1,0 +1,22 @@
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\bin\Debug\Makraoui Auto Location.exe.config
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\bin\Debug\Makraoui Auto Location.exe
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\bin\Debug\Makraoui Auto Location.pdb
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\MainWindow.baml
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\CarsView.baml
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\MainWindow.g.cs
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\CarsView.g.cs
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\ClientsView.g.cs
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\DashboardView.g.cs
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\App.g.cs
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location_MarkupCompile.cache
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location_MarkupCompile.lref
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\ClientsView.baml
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\DashboardView.baml
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.g.resources
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui_Auto_Location.Properties.Resources.resources
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.csproj.GenerateResource.cache
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.exe
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.pdb
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\GeneratedInternalTypeHelper.g.cs
