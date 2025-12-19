@@ -6,28 +6,54 @@
         MinWidth="1024"
         MinHeight="700">
 
-    <Grid Background="#FFF5F5F5">
+    <Grid x:Name="RootGrid" Background="#EBF4DD">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Menu -->
-            <RowDefinition Height="*"/>
-            <!-- Content -->
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" x:Name="MenuColumn"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- MENU -->
-        <WrapPanel Grid.Row="0"
-                   Background="#FFE0EEFF"
-                   HorizontalAlignment="Center"
-                   Margin="0,6">
-            <Button Content="Dashboard" Width="140" Height="40" Margin="5"/>
-            <Button Content="Client" Width="140" Height="40" Margin="5"/>
-            <Button Content="Cars" Width="140" Height="40" Margin="5"/>
-        </WrapPanel>
+        <Border x:Name="MenuBorder"
+                Grid.Column="0"
+                Background="#5A7863"
+                MouseEnter="MenuBorder_MouseEnter"
+                MouseLeave="MenuBorder_MouseLeave" >
 
-        <!-- PAGE CONTENT -->
-        <ContentControl x:Name="MainContent"
-                        Grid.Row="1" Background="#FFF70000"/>
+            <StackPanel VerticalAlignment="Top" Margin="5">
+
+                <Button x:Name="btnDashboard" Content="🏠"
+                        Height="50"
+                        Margin="5"
+                        Background="#3B4953"
+                        Foreground="White"
+                        ToolTip="Dashboard" FontWeight="Bold"/>
+
+                <Button x:Name="btnClients" Content="👤"
+                        Height="50"
+                        Margin="5"
+                        Background="#3B4953"
+                        Foreground="White"
+                        ToolTip="Clients" FontWeight="Bold"/>
+
+                <Button x:Name="btnCars" Content="🚗"
+                        Height="50"
+                        Margin="5"
+                        Background="#3B4953"
+                        Foreground="White"
+                        ToolTip="Cars" FontWeight="Bold"/>
+
+                <Button x:Name="btnContracts" Content="📝"
+                        Height="50"
+                        Margin="5"
+                        Background="#3B4953"
+                        Foreground="White"
+                        ToolTip="Cars" FontWeight="Bold"/>
+
+            </StackPanel>
+            
+        </Border>
+
+        <ContentControl x:Name="MainContent" Grid.Column="1"/>
 
     </Grid>
 </Window>

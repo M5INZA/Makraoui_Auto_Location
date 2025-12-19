@@ -20,3 +20,5 @@ C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug
 C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.exe
 C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\Makraoui Auto Location.pdb
 C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\ContractView.baml
+C:\Users\hp\source\repos\Makraoui Auto Location\Makraoui Auto Location\obj\Debug\View\ContractView.g.cs

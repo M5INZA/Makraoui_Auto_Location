@@ -3,10 +3,101 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Makraoui_Auto_Location.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000">
+
+    <Grid Background="#EBF4DD" Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0" Columns="4" Margin="0,0,0,15">
+
+            <Border Background="White" Margin="5" Padding="15" CornerRadius="12" BorderBrush="#90AB8B" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Total Cars" Foreground="#5A7863" FontWeight="SemiBold"/>
+                    <TextBlock Text="25" FontSize="32" FontWeight="Bold" Foreground="#3B4953"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" Margin="5" Padding="15" CornerRadius="12" BorderBrush="#90AB8B" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Available Cars" Foreground="#5A7863" FontWeight="SemiBold"/>
+                    <TextBlock Text="14" FontSize="32" FontWeight="Bold" Foreground="#5A7863"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" Margin="5" Padding="15" CornerRadius="12" BorderBrush="#90AB8B" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="Rented Cars" Foreground="#5A7863" FontWeight="SemiBold"/>
+                    <TextBlock Text="9" FontSize="32" FontWeight="Bold" Foreground="#3B4953"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White" Margin="5" Padding="15" CornerRadius="12" BorderBrush="#A94442" BorderThickness="2">
+                <StackPanel>
+                    <TextBlock Text="Overdue Cars" Foreground="#A94442" FontWeight="Bold"/>
+                    <TextBlock Text="2" FontSize="32" FontWeight="Bold" Foreground="#A94442"/>
+                </StackPanel>
+            </Border>
+
+        </UniformGrid>
+
+        <Grid Grid.Row="1" Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Background="White" Margin="5" Padding="15" CornerRadius="12" BorderBrush="#90AB8B" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="🆕 Rentals Today" FontSize="16" FontWeight="Bold" Foreground="#3B4953" Margin="0,0,0,10"/>
+                    <ItemsControl ItemsSource="{Binding DailyRentals}">
+                        <TextBlock Text="• Ahmed → Toyota Corolla" Foreground="#5A7863" Margin="0,2"/>
+                        <TextBlock Text="• Fatima → Kia Rio" Foreground="#5A7863" Margin="0,2"/>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" Margin="5" Padding="15" CornerRadius="12" BorderBrush="#90AB8B" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="🏁 Returns Today" FontSize="16" FontWeight="Bold" Foreground="#3B4953" Margin="0,0,0,10"/>
+                    <TextBlock Text="• Youssef → Dacia Logan" Foreground="#5A7863" Margin="0,2"/>
+                    <TextBlock Text="• No other returns" Foreground="Gray" FontStyle="Italic" Margin="0,2"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="2" Background="#FFF1F1" Padding="15" Margin="5" CornerRadius="12" BorderBrush="#A94442" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="⚠️" FontSize="20" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                <StackPanel>
+                    <TextBlock Text="Attention Required" FontWeight="Bold" Foreground="#A94442" FontSize="14"/>
+                    <TextBlock Text="• 2 cars are overdue for return. | • 1 client is on the blacklist and tried to book." Foreground="#3B4953"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <UniformGrid Grid.Row="3" Columns="2" Margin="0,15,0,0">
+
+            <Border Background="#3B4953" Margin="5" Padding="20" CornerRadius="12">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Income Today" Foreground="#EBF4DD" FontSize="14"/>
+                    <TextBlock Text="850.00 MAD" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="#5A7863" Margin="5" Padding="20" CornerRadius="12">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Income This Month" Foreground="#EBF4DD" FontSize="14"/>
+                    <TextBlock Text="12,300.00 MAD" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                </StackPanel>
+            </Border>
+
+        </UniformGrid>
+
     </Grid>
 </UserControl>

@@ -7,151 +7,356 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Actions -->
+            <!-- Search -->
             <RowDefinition Height="Auto"/>
             <!-- Form -->
             <RowDefinition Height="*"/>
             <!-- Vehicles -->
+            <RowDefinition Height="Auto"/>
+            <!-- Actions -->
         </Grid.RowDefinitions>
 
-        <!-- ===================== ACTION BUTTONS ===================== -->
-        <WrapPanel Grid.Row="0"
-                   Background="#FFE0EEFF"
-                   HorizontalAlignment="Center"
-                   Margin="0,6">
-            <Button Content="Add Vehicle" Width="140" Height="40" Margin="5"/>
-            <Button Content="Edit" Width="140" Height="40" Margin="5"/>
-            <Button Content="Save" Width="140" Height="40" Margin="5"/>
-            <Button Content="Cancel" Width="140" Height="40" Margin="5"/>
-            <Button Content="Delete" Width="140" Height="40" Margin="5"/>
-        </WrapPanel>
+        <!-- ===================== Search ===================== -->
+        <Border Grid.Row="0"
+        Margin="15,0,15,10"
+        Padding="10"
+        Background="#EBF4DD" 
+        BorderBrush="#90AB8B"
+        BorderThickness="1"
+        CornerRadius="8">
+
+            <DockPanel LastChildFill="True">
+                <TextBlock Text="Search🔍:"
+                   Foreground="#3B4953"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   Margin="0,0,10,0"
+                   DockPanel.Dock="Left"/>
+
+                <Button x:Name="btnSearch" Content="Search" 
+                Width="100" 
+                Height="32"
+                Margin="10,0,0,0"
+                Background="#3B4953" 
+                Foreground="White"
+                BorderThickness="0"
+                FontWeight="SemiBold"
+                DockPanel.Dock="Right" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <ComboBox x:Name="cmbSearchCriteria" Width="140" 
+                  Height="32" 
+                  Margin="10,0,0,0"
+                  VerticalContentAlignment="Center"
+                  BorderBrush="#90AB8B"
+                  SelectedIndex="0"
+                  DockPanel.Dock="Right">
+                    <ComboBoxItem Content="Plate Number"/>
+                    <ComboBoxItem Content="Brand"/>
+                    <ComboBoxItem Content="Model"/>
+                    <ComboBoxItem Content="Year"/>
+                    <ComboBoxItem Content="Color"/>
+                    <ComboBoxItem Content="Status"/>
+                    <ComboBoxItem Content="Transmission"/>
+                    <ComboBoxItem Content="Engine"/>
+                    <ComboBoxItem Content="Stock Number"/>
+                    <ComboBoxItem Content="Price"/>
+                </ComboBox>
+
+                <TextBox x:Name="txtSearch" Height="32"
+                 VerticalContentAlignment="Center"
+                 FontSize="14"
+                 Padding="5,0"
+                 BorderBrush="#90AB8B"
+                 Background="White"/>
+
+            </DockPanel>
+        </Border>
 
         <!-- ===================== VEHICLE FORM ===================== -->
         <Border Grid.Row="1"
-                Margin="15"
-                Padding="15"
-                Background="White"
-                CornerRadius="8">
+        Margin="15"
+        Padding="15"
+        BorderBrush="#90AB8B"
+        Background="White"
+        BorderThickness="1"
+        CornerRadius="8">
 
             <StackPanel>
-                <TextBlock Text="Vehicle Information"
-                           FontSize="18"
-                           FontWeight="Bold"
-                           Margin="0,0,0,12"/>
+                <TextBlock Text="Vehicle Information:"
+                   Foreground="#3B4953"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Margin="0,0,0,15"/>
 
-                <UniformGrid Columns="5" Rows="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Plate Number"/>
-                        <TextBox Height="28"/>
+                    <UniformGrid Grid.Column="0"
+                         Columns="2"
+                         Margin="0,0,20,0">
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Plate Number" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtPlateNumber" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Brand" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtBrand" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Model" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtModel" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Year" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtYear" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Color" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtColor" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Status:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <ComboBox x:Name="cmbStatus" Height="28" VerticalContentAlignment="Center" SelectedIndex="0" BorderBrush="#90AB8B">
+                                <ComboBoxItem Content="Available"/>
+                                <ComboBoxItem Content="Rented"/>
+                                <ComboBoxItem Content="In Maintenance"/>
+                                <ComboBoxItem Content="Reserved"/>
+                                <ComboBoxItem Content="Out of Service"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Transmission:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <ComboBox x:Name="cmbTransmission" Height="28" VerticalContentAlignment="Center" SelectedIndex="0" BorderBrush="#90AB8B">
+                                <ComboBoxItem Content="Manual"/>
+                                <ComboBoxItem Content="Automatic"/>
+                                <ComboBoxItem Content="Semi-Automatic"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Engine" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtEngine" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Price / Day" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtPricePerDay" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Stock Number" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox x:Name="txtStockNumber" Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                    </UniformGrid>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+
+                        <Border Height="150"
+                        Width="150"
+                        Background="#EBF4DD"
+                        BorderBrush="#90AB8B"
+                        BorderThickness="2"
+                        CornerRadius="6"
+                        Margin="0,5">
+                            <Image x:Name="imgVehiclePhoto" Stretch="Uniform"/>
+                        </Border>
+
+                        <Button x:Name="btnBrowseImage" Content="📷 Get Image"
+                        Background="#3B4953"
+                        Foreground="White"
+                        FontWeight="Light"
+                        Height="32"
+                        Margin="0,10,0,0" Cursor="Hand">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </StackPanel>
 
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Brand"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Model"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Year"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Color"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Status"/>
-                        <ComboBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Transmission"/>
-                        <ComboBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Engine"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Price / Day"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                    <StackPanel Margin="5">
-                        <TextBlock Text="Stock Number"/>
-                        <TextBox Height="28"/>
-                    </StackPanel>
-
-                </UniformGrid>
-
-
+                </Grid>
             </StackPanel>
         </Border>
 
         <!-- ===================== VEHICLES LIST ===================== -->
-        <ScrollViewer Grid.Row="2"
-                      Margin="15"
-                      VerticalScrollBarVisibility="Auto">
+        <Grid Grid.Row="2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <ItemsControl>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+            <TextBlock Grid.Row="0"
+               Text="🚗 Available Vehicles List:" 
+               FontSize="18" 
+               FontWeight="Bold" 
+               Margin="15,10,15,5" 
+               Foreground="#3B4953"/>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Width="200"
-                    Margin="8"
-                    Padding="8"
-                    Background="White"
-                    CornerRadius="6"
-                    BorderBrush="#CCC"
-                    BorderThickness="1">
+            <ScrollViewer Grid.Row="1"
+                  Margin="15,0,15,15"
+                  VerticalScrollBarVisibility="Auto">
 
-                            <StackPanel>
-                                <TextBlock Text="{Binding Plate}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Name}"/>
-                                <TextBlock Text="{Binding Year}"/>
+                <ItemsControl x:Name="icVehiclesList" ItemsSource="{Binding YourCollectionName}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                                <TextBlock Text="{Binding Price}"
-                               FontWeight="Bold"
-                               Margin="0,6"/>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="210" 
+                            Margin="8" 
+                            Padding="10" 
+                            Background="#EBF4DD" 
+                            CornerRadius="10" 
+                            BorderBrush="#90AB8B" 
+                            BorderThickness="1">
 
-                                <Border Height="100"
-                            Background="#EEE"
-                            CornerRadius="4">
-                                    <TextBlock Text="Photo"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                                </Border>
-                            </StackPanel>
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="5" ShadowDepth="1" Opacity="0.1"/>
+                                </Border.Effect>
 
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Plate}" 
+                                       Foreground="#5A7863" 
+                                       FontSize="12"
+                                       FontWeight="Bold"/>
 
-                <!-- TEST DATA -->
-                <ItemsControl.Items>
-                    <local:Vehicle Plate="G-76-87" Name="Ford Mustang" Year="2006" Price="125 MAD"/>
-                    <local:Vehicle Plate="H-45-65" Name="Toyota Corolla" Year="2004" Price="90 MAD"/>
-                    <local:Vehicle Plate="R-65-39" Name="Mitsubishi Lancer" Year="2003" Price="80 MAD"/>
-                    <local:Vehicle Plate="V-98-21" Name="Kia Rio" Year="2005" Price="70 MAD"/>
-                    <local:Vehicle Plate="G-45-34" Name="BMW X5" Year="2008" Price="150 MAD"/>
-                </ItemsControl.Items>
-            </ItemsControl>
+                                    <TextBlock Text="{Binding Name}" 
+                                       FontSize="14" 
+                                       FontWeight="SemiBold" 
+                                       Foreground="#3B4953"
+                                       Margin="0,2,0,0"/>
 
-        </ScrollViewer>
+                                    <TextBlock Text="{Binding Year}" 
+                                       FontSize="11" 
+                                       Foreground="#5A7863"/>
+
+                                    <TextBlock Text="{Binding Price}" 
+                                       Foreground="#3B4953" 
+                                       FontSize="15" 
+                                       FontWeight="Bold" 
+                                       Margin="0,8"/>
+
+                                    <Border Height="110" 
+                                    Background="White" 
+                                    CornerRadius="6" 
+                                    BorderBrush="#90AB8B" 
+                                    BorderThickness="0.5">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Text="📷" FontSize="20" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Vehicle Photo" 
+                                               FontSize="10" 
+                                               Foreground="#90AB8B" 
+                                               HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+                    <ItemsControl.Items>
+                        <local:Vehicle Plate="A-12-45" Name="Volkswagen Golf" Year="2010" Price="110 MAD"/>
+                        <local:Vehicle Plate="B-88-23" Name="Dacia Logan" Year="2012" Price="65 MAD"/>
+                        <local:Vehicle Plate="C-34-11" Name="Mercedes-Benz C220" Year="2007" Price="140 MAD"/>
+                    </ItemsControl.Items>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+        <!-- ===================== ACTION BUTTONS ===================== -->
+        <WrapPanel Grid.Row="3"
+           Background="#EBF4DD" 
+           HorizontalAlignment="Center"
+           Margin="0,6"
+           VerticalAlignment="Center">
+
+            <Button x:Name="btnAdd" Width="140" Height="40" Margin="5"
+            Background="#3B4953" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="➕" Margin="0,0,8,0"/>
+                    <TextBlock Text="Add Vehicle" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnEdit" Width="140" Height="40" Margin="5"
+            Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="✏️" Margin="0,0,8,0"/>
+                    <TextBlock Text="Edit" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnSave" Width="140" Height="40" Margin="5"
+            Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="💾" Margin="0,0,8,0"/>
+                    <TextBlock Text="Save" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnCancel" Width="140" Height="40" Margin="5"
+            Background="Transparent" Foreground="#3B4953" BorderBrush="#90AB8B" BorderThickness="1.5" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="✖️" Margin="0,0,8,0"/>
+                    <TextBlock Text="Cancel" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnDelete" Width="140" Height="40" Margin="5"
+            Background="#A94442" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🗑️" Margin="0,0,8,0"/>
+                    <TextBlock Text="Delete" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </WrapPanel>
 
     </Grid>
 </UserControl>

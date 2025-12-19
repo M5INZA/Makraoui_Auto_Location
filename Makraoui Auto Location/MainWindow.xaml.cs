@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Makraoui_Auto_Location.View;
+using System.Windows.Media.Animation;
 
 namespace Makraoui_Auto_Location
 {
@@ -24,7 +25,42 @@ namespace Makraoui_Auto_Location
         public MainWindow()
         {
             InitializeComponent();
-            MainContent.Content = new CarsView();
+            MainContent.Content = new DashboardView();
+        }
+
+        private void MenuBorder_MouseEnter(object sender, MouseEventArgs e)
+        {
+            AnimateMenu(220);
+            btnDashboard.Content = "Dashboard 🏠";
+            btnClients.Content = "Clients 👤";
+            btnCars.Content = "Cars 🚗";
+            btnContracts.Content = "Contracts 📝";
+        }
+
+        private void MenuBorder_MouseLeave(object sender, MouseEventArgs e)
+        {
+            AnimateMenu(60);
+            btnDashboard.Content = "🏠";
+            btnClients.Content = "👤";
+            btnCars.Content = "🚗";
+            btnContracts.Content = "📝";
+        }
+
+        private void AnimateMenu(double toWidth)
+        {
+            DoubleAnimation animation = new DoubleAnimation
+            {
+                To = toWidth,
+                Duration = TimeSpan.FromMilliseconds(20),
+                EasingFunction = new CubicEase
+                {
+                    EasingMode = EasingMode.EaseOut
+                }
+            };
+
+            MenuColumn.BeginAnimation(
+                ColumnDefinition.WidthProperty,
+                new GridLengthAnimation(animation));
         }
     }
 }

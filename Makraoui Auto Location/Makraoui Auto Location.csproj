@@ -55,11 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GridLengthAnimation.cs" />
     <Compile Include="View\CarsView.xaml.cs">
       <DependentUpon>CarsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientsView.xaml.cs">
       <DependentUpon>ClientsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContractView.xaml.cs">
+      <DependentUpon>ContractView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>
@@ -81,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ClientsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ContractView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

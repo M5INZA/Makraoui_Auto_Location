@@ -1,12 +1,295 @@
 ﻿<UserControl x:Class="Makraoui_Auto_Location.View.ClientsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Makraoui_Auto_Location.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+        <Style x:Key="PlaceholderTextBox" TargetType="TextBox">
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#FFF5F5F5" Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Search -->
+            <RowDefinition Height="200"/>
+            <!-- Table -->
+            <RowDefinition Height="*"/>
+            <!-- Form -->
+            <RowDefinition Height="Auto"/>
+            <!-- Actions -->
+        </Grid.RowDefinitions>
+
+        <!-- ================= SEARCH BAR ================= -->
+
+        <Border Grid.Row="0"
+        Margin="15,0,15,10"
+        Padding="10"
+        Background="White"
+        BorderBrush="#90AB8B"
+        BorderThickness="1"
+        CornerRadius="8">
+
+            <DockPanel LastChildFill="True">
+                <TextBlock Text="Search🔍:"
+                   Foreground="#3B4953"
+                   FontSize="16"
+                   VerticalAlignment="Center"
+                   Margin="0,0,10,0"
+                   DockPanel.Dock="Left"/>
+
+                <Button Content="Search" 
+                Width="100" 
+                Height="32"
+                Margin="10,0,0,0"
+                Background="#3B4953" 
+                Foreground="White"
+                BorderThickness="0"
+                FontWeight="SemiBold"
+                DockPanel.Dock="Right" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <ComboBox Width="140" 
+                  Height="32" 
+                  Margin="10,0,0,0"
+                  VerticalContentAlignment="Center"
+                  BorderBrush="#90AB8B"
+                  SelectedIndex="0"
+                  DockPanel.Dock="Right">
+                    <ComboBoxItem Content="Full Name"/>
+                    <ComboBoxItem Content="CIN / Passport"/>
+                    <ComboBoxItem Content="Phone"/>
+                    <ComboBoxItem Content="Email"/>
+                    <ComboBoxItem Content="Address"/>
+                    <ComboBoxItem Content="Driver License Numer"/>
+                </ComboBox>
+
+                <TextBox Height="32"
+                 VerticalContentAlignment="Center"
+                 FontSize="14"
+                 BorderBrush="#90AB8B"
+                 Padding="5,0"/>
+            </DockPanel>
+        </Border>
+
+        <!-- ================= CLIENTS TABLE ================= -->
+        <Border Grid.Row="1" 
+        Background="White" 
+        CornerRadius="6" 
+        Padding="5" 
+        Margin="0,0,0,8"
+        BorderBrush="#90AB8B"
+        BorderThickness="1">
+
+            <DataGrid AutoGenerateColumns="False"
+              Background="White"
+              BorderThickness="0"
+              GridLinesVisibility="Horizontal"
+              HorizontalGridLinesBrush="#EBF4DD"
+              RowBackground="White"
+              AlternatingRowBackground="#F9FBF5" 
+              RowHeight="30"
+              CanUserAddRows="False">
+
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#5A7863"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Padding" Value="10,5"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                        <Setter Property="BorderBrush" Value="#EBF4DD"/>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Full Name" Width="*" Binding="{Binding FullName}"/>
+                    <DataGridTextColumn Header="Phone" Width="120" Binding="{Binding Phone}"/>
+                    <DataGridTextColumn Header="CIN" Width="100" Binding="{Binding CIN}"/>
+                    <DataGridTextColumn Header="Status" Width="100" Binding="{Binding Status}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- ================= CLIENT FORM ================= -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="15,0">
+            <StackPanel>
+
+                <GroupBox Header="Basic Information" 
+                  Foreground="#3B4953" 
+                  FontWeight="Bold" 
+                  Margin="0,0,0,10" 
+                  BorderBrush="#90AB8B" 
+                  BorderThickness="1">
+
+                    <UniformGrid Columns="4" Margin="5">
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Full Name:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="CIN / Passport:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Phone:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Email:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5" Grid.ColumnSpan="2">
+                            <TextBlock Text="Address:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Driver License:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <TextBox Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Expiration Date:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <DatePicker Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Birth Date:" Foreground="#5A7863" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                            <DatePicker Height="28" VerticalContentAlignment="Center" BorderBrush="#90AB8B"/>
+                        </StackPanel>
+                    </UniformGrid>
+                </GroupBox>
+
+                <GroupBox Header="Business Information" 
+                  Foreground="#3B4953" 
+                  FontWeight="Bold" 
+                  Margin="0,0,0,10" 
+                  BorderBrush="#90AB8B">
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Customer Category:" Foreground="#5A7863" FontWeight="SemiBold" Margin="10,5,0,0"/>
+                        <WrapPanel Margin="5">
+                            <RadioButton Content="Active" Margin="5" IsChecked="True" Foreground="#3B4953"/>
+                            <RadioButton Content="Blacklisted" Margin="5" Foreground="#A94442"/>
+                            <RadioButton Content="VIP" Margin="5" Foreground="#B8860B"/>
+                        </WrapPanel>
+
+                        <TextBlock Text="Internal Notes:" Foreground="#5A7863" FontWeight="SemiBold" Margin="10,10,0,0"/>
+                        <TextBox Margin="5" Height="60" TextWrapping="Wrap" AcceptsReturn="True" 
+                         BorderBrush="#90AB8B" Background="White" Padding="5"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Documents" Foreground="#3B4953" FontWeight="Bold" BorderBrush="#90AB8B">
+                    <UniformGrid Columns="3" Margin="5">
+                        <StackPanel Margin="8">
+                            <Border Height="120" Background="#EBF4DD" CornerRadius="6" BorderBrush="#90AB8B" BorderThickness="1">
+                                <TextBlock Text="CIN Document" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#90AB8B"/>
+                            </Border>
+                            <Button Content="📁 Load CIN" Margin="0,8,0,0" Height="30" Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="8">
+                            <Border Height="120" Background="#EBF4DD" CornerRadius="6" BorderBrush="#90AB8B" BorderThickness="1">
+                                <TextBlock Text="License Document" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#90AB8B"/>
+                            </Border>
+                            <Button Content="📁 Load License" Margin="0,8,0,0" Height="30" Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="8">
+                            <Border Height="120" Background="#EBF4DD" CornerRadius="6" BorderBrush="#90AB8B" BorderThickness="1">
+                                <TextBlock Text="Client Photo" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#90AB8B"/>
+                            </Border>
+                            <Button Content="📷 Take/Load Photo" Margin="0,8,0,0" Height="30" Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                        </StackPanel>
+                    </UniformGrid>
+                </GroupBox>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- ================= ACTION BUTTONS ================= -->
+        <WrapPanel Grid.Row="3"
+           Background="#EBF4DD" 
+           HorizontalAlignment="Center"
+           Margin="0,6"
+           VerticalAlignment="Center">
+
+            <Button Width="140" Height="40" Margin="5"
+            Background="#3B4953" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="➕" Margin="0,0,8,0"/>
+                    <TextBlock Text="Add Client" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Width="140" Height="40" Margin="5"
+            Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="✏️" Margin="0,0,8,0"/>
+                    <TextBlock Text="Edit Info" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Width="140" Height="40" Margin="5"
+            Background="#5A7863" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="💾" Margin="0,0,8,0"/>
+                    <TextBlock Text="Save Changes" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Width="140" Height="40" Margin="5"
+            Background="Transparent" Foreground="#3B4953" BorderBrush="#90AB8B" BorderThickness="1.5" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="✖️" Margin="0,0,8,0"/>
+                    <TextBlock Text="Cancel" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Width="140" Height="40" Margin="5"
+            Background="#A94442" Foreground="White" BorderThickness="0" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🗑️" Margin="0,0,8,0"/>
+                    <TextBlock Text="Delete Client" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </WrapPanel>
+
     </Grid>
 </UserControl>
